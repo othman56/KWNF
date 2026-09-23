@@ -1,69 +1,173 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="min-h-screen bg-background text-foreground">
+      {/* Announcement Bar */}
+      <div className="border-b border-border bg-primary px-4 py-2 text-center text-xs font-bold uppercase tracking-wider text-black">
+        Nationwide Delivery Available • Ibadan, Nigeria
+      </div>
+
+      {/* Navbar */}
+      <header className="border-b border-border">
+        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
+          <Link
+            href="/"
+            className="text-xl font-black uppercase tracking-tighter sm:text-2xl"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            KICKS <span className="text-primary">WEY</span> NO GO FAR
+          </Link>
+
+          <div className="hidden items-center gap-8 md:flex">
+            <Link
+              href="/"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
+              Home
+            </Link>
+
+            <Link
+              href="/shop"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
+              Shop
+            </Link>
+
+            <Link
+              href="/#about"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
+              About
+            </Link>
+
+            <Link
+              href="/#contact"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
+              Contact
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Link
+              href="/cart"
+              className="hidden text-sm font-semibold transition-colors hover:text-primary sm:block"
+            >
+              Cart (0)
+            </Link>
+
+            <Link
+              href="/shop"
+              className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-black transition-colors hover:bg-primary-hover sm:block"
+            >
+              Shop Now
+            </Link>
+
+            <button
+              type="button"
+              aria-label="Open menu"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-lg md:hidden"
+            >
+              ☰
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className="mx-auto grid min-h-[calc(100vh-120px)] max-w-7xl items-center gap-12 px-5 py-16 lg:grid-cols-2 lg:px-8 lg:py-20">
+          {/* Hero Content */}
+          <div className="max-w-2xl">
+            <p className="mb-5 text-sm font-bold uppercase tracking-[0.25em] text-primary">
+              Step Different
+            </p>
+
+            <h1 className="text-5xl font-black uppercase leading-[0.9] tracking-[-0.04em] sm:text-7xl lg:text-8xl">
+              Kicks
+              <br />
+              Wey
+              <br />
+              <span className="text-primary">No Go Far.</span>
+            </h1>
+
+            <p className="mt-7 max-w-lg text-base leading-7 text-muted sm:text-lg">
+              Premium sneakers for people who move different. Discover your next
+              pair and make every step count.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/shop"
+                className="inline-flex h-14 items-center justify-center rounded-full bg-primary px-8 text-sm font-black uppercase tracking-wide text-black transition-transform hover:scale-[1.02]"
+              >
+                Shop Collection
+              </Link>
+
+              <Link
+                href="https://wa.me/2349038319865"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-14 items-center justify-center rounded-full border border-border px-8 text-sm font-black uppercase tracking-wide transition-colors hover:border-primary hover:text-primary"
+              >
+                Order on WhatsApp
+              </Link>
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs font-semibold uppercase tracking-wider text-muted">
+              <span>✓ Quality Sneakers</span>
+              <span>✓ Nationwide Delivery</span>
+              <span>✓ Ibadan Based</span>
+            </div>
+          </div>
+
+          {/* Hero Visual */}
+          <div className="relative flex min-h-[420px] items-center justify-center lg:min-h-[600px]">
+            <div className="absolute h-72 w-72 rounded-full bg-primary/10 blur-3xl sm:h-96 sm:w-96" />
+
+            <div className="relative flex aspect-square w-full max-w-lg items-center justify-center border border-border bg-surface">
+              <div className="px-8 text-center">
+                <p className="text-7xl font-black uppercase tracking-tighter text-primary sm:text-8xl">
+                  KWNF
+                </p>
+
+                <p className="mt-2 text-xs font-bold uppercase tracking-[0.35em] text-muted">
+                  Your next pair starts here
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Brand Statement */}
+      <section className="border-t border-border bg-surface">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 sm:grid-cols-3 lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase text-primary">01</p>
+            <h2 className="mt-3 text-xl font-black uppercase">Premium Kicks</h2>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              Carefully selected sneakers built for everyday style.
+            </p>
+          </div>
+
+          <div>
+            <p className="text-sm font-black uppercase text-primary">02</p>
+            <h2 className="mt-3 text-xl font-black uppercase">Street Energy</h2>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              A Nigerian sneaker brand made for people who stand out.
+            </p>
+          </div>
+
+          <div>
+            <p className="text-sm font-black uppercase text-primary">03</p>
+            <h2 className="mt-3 text-xl font-black uppercase">Nationwide</h2>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              Based in Ibadan and delivering your kicks across Nigeria.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

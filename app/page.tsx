@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/layout/Navbar";
 import Link from "next/link";
 
 export default function Home() {
@@ -9,70 +10,7 @@ export default function Home() {
       </div>
 
       {/* Navbar */}
-      <header className="border-b border-border">
-        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
-          <Link
-            href="/"
-            className="text-xl font-black uppercase tracking-tighter sm:text-2xl"
-          >
-            KICKS <span className="text-primary">WEY</span> NO GO FAR
-          </Link>
-
-          <div className="hidden items-center gap-8 md:flex">
-            <Link
-              href="/"
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
-              Home
-            </Link>
-
-            <Link
-              href="/shop"
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
-              Shop
-            </Link>
-
-            <Link
-              href="/#about"
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
-              About
-            </Link>
-
-            <Link
-              href="/#contact"
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
-              Contact
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link
-              href="/cart"
-              className="hidden text-sm font-semibold transition-colors hover:text-primary sm:block"
-            >
-              Cart (0)
-            </Link>
-
-            <Link
-              href="/shop"
-              className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-black transition-colors hover:bg-primary-hover sm:block"
-            >
-              Shop Now
-            </Link>
-
-            <button
-              type="button"
-              aria-label="Open menu"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-lg md:hidden"
-            >
-              ☰
-            </button>
-          </div>
-        </nav>
-      </header>
+      <Navbar />
 
       {/* Hero */}
       <section className="relative overflow-hidden">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "sonner";
 
 import { CartProvider } from "@/context/cartContext";
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <CartProvider>{children}</CartProvider>
+        <Toaster position="bottom-right" />
       </body>
     </html>
   );

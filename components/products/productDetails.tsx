@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 
 import type { Product } from "@/lib/products";
+import { useCart } from "@/context/cartContext";
+import { toast } from "sonner";
 
 type ProductDetailsProps = {
   product: Product;
@@ -12,6 +14,8 @@ type ProductDetailsProps = {
 export function ProductDetails({ product }: ProductDetailsProps) {
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
   const [quantity, setQuantity] = useState(1);
+
+  const { addToCart } = useCart();
 
   return (
     <>
@@ -117,6 +121,21 @@ export function ProductDetails({ product }: ProductDetailsProps) {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <button
               type="button"
+              onClick={() => {
+                if (!selectedSize) {
+                  toast.error("Please select a size", {
+                    description:
+                      "Choose your preferred shoe size before adding this item to your cart.",
+                  });
+                  return;
+                }
+
+                addToCart(product, selectedSize, quantity);
+
+                toast.success("Added to cart", {
+                  description: `${product.name} · Size ${selectedSize} · Qty ${quantity}`,
+                });
+              }}
               className="h-14 flex-1 rounded-full bg-primary px-8 text-sm font-black uppercase tracking-wide text-black transition-colors hover:bg-primary-hover"
             >
               Add to Cart

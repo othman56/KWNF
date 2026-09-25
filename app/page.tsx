@@ -1,4 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar";
+import { ProductCard } from "@/components/products/productCard";
+import { products } from "@/lib/products";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -63,17 +66,70 @@ export default function Home() {
           <div className="relative flex min-h-[420px] items-center justify-center lg:min-h-[600px]">
             <div className="absolute h-72 w-72 rounded-full bg-primary/10 blur-3xl sm:h-96 sm:w-96" />
 
-            <div className="relative flex aspect-square w-full max-w-lg items-center justify-center border border-border bg-surface">
-              <div className="px-8 text-center">
-                <p className="text-7xl font-black uppercase tracking-tighter text-primary sm:text-8xl">
-                  KWNF
+            <div className="relative aspect-square w-full max-w-lg overflow-hidden border border-border bg-surface">
+              <Image
+                src="/images/products/street-runner.jpg"
+                alt="Street Runner sneaker"
+                fill
+                priority
+                className="object-cover"
+              />
+
+              <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/80 via-black/30 to-transparent p-6 sm:p-8">
+                <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary">
+                  Featured
                 </p>
 
-                <p className="mt-2 text-xs font-bold uppercase tracking-[0.35em] text-muted">
-                  Your next pair starts here
+                <p className="mt-2 text-2xl font-black uppercase tracking-tight">
+                  Street Runner
+                </p>
+
+                <p className="mt-1 text-sm font-semibold text-white/70">
+                  ₦85,000
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.25em] text-primary">
+                Featured
+              </p>
+
+              <h2 className="mt-3 text-4xl font-black uppercase tracking-tight sm:text-5xl">
+                Fresh Kicks
+              </h2>
+
+              <p className="mt-3 max-w-xl text-sm leading-6 text-muted sm:text-base">
+                Step into some of our latest pairs. Built for everyday movement
+                and made to stand out.
+              </p>
+            </div>
+
+            <Link
+              href="/shop"
+              className="text-sm font-black uppercase tracking-wider transition-colors hover:text-primary"
+            >
+              View All →
+            </Link>
+          </div>
+
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {products.slice(0, 6).map((product) => (
+              <ProductCard
+                key={product.id}
+                name={product.name}
+                price={product.price}
+                image={product.image}
+                slug={product.slug}
+              />
+            ))}
           </div>
         </div>
       </section>

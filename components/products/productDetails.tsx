@@ -6,6 +6,7 @@ import { useState } from "react";
 import type { Product } from "@/lib/products";
 import { useCart } from "@/context/cartContext";
 import { toast } from "sonner";
+import Image from "next/image";
 
 type ProductDetailsProps = {
   product: Product;
@@ -27,12 +28,14 @@ export function ProductDetails({ product }: ProductDetailsProps) {
       </Link>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-16">
-        <div className="aspect-square bg-surface">
-          <div className="flex h-full items-center justify-center">
-            <span className="text-7xl font-black uppercase tracking-tighter text-primary/20 sm:text-9xl">
-              KWNF
-            </span>
-          </div>
+        <div className="relative aspect-square overflow-hidden bg-surface">
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
 
         <div className="flex flex-col justify-center">

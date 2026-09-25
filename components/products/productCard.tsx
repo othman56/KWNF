@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type ProductCardProps = {
@@ -12,11 +13,12 @@ export function ProductCard({ name, price, image, slug }: ProductCardProps) {
     <article className="group">
       <Link href={`/products/${slug}`}>
         <div className="relative aspect-square overflow-hidden bg-surface">
-          <div className="flex h-full items-center justify-center text-center">
-            <span className="text-5xl font-black uppercase tracking-tighter text-primary/20 transition-transform duration-500 group-hover:scale-110 sm:text-7xl">
-              KWNF
-            </span>
-          </div>
+          <Image
+            src={image}
+            alt={name}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
 
           <div className="absolute inset-0 flex items-end bg-linear-to from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             <div className="w-full p-5">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { useCart } from "@/context/cartContext";
+import Image from "next/image";
 
 type CheckoutForm = {
   fullName: string;
@@ -284,10 +285,13 @@ export default function CheckoutPage() {
                   key={`${item.product.id}-${item.size}`}
                   className="flex gap-4"
                 >
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center bg-background">
-                    <span className="text-xs font-black text-primary/30">
-                      KWNF
-                    </span>
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden bg-background">
+                    <Image
+                      src={item.product.image}
+                      alt={item.product.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
 
                   <div className="min-w-0 flex-1">

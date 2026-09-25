@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 import { useCart } from "@/context/cartContext";
+import Image from "next/image";
 
 export default function CartPage() {
   const { items, totalItems, totalPrice, updateQuantity, removeFromCart } =
@@ -52,10 +53,13 @@ export default function CartPage() {
                   key={`${item.product.id}-${item.size}`}
                   className="flex gap-5 border-b border-border pb-6"
                 >
-                  <div className="flex h-28 w-28 shrink-0 items-center justify-center bg-surface sm:h-36 sm:w-36">
-                    <span className="text-2xl font-black tracking-tighter text-primary/20 sm:text-3xl">
-                      KWNF
-                    </span>
+                  <div className="relative h-28 w-28 shrink-0 overflow-hidden bg-surface sm:h-36 sm:w-36">
+                    <Image
+                      src={item.product.image}
+                      alt={item.product.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
 
                   <div className="flex min-w-0 flex-1 flex-col justify-between">
@@ -161,12 +165,12 @@ export default function CartPage() {
                 </span>
               </div>
 
-              <button
-                type="button"
+              <Link
+                href="/checkout"
                 className="mt-8 flex h-14 w-full items-center justify-center rounded-full bg-primary px-8 text-sm font-black uppercase tracking-wide text-black transition-colors hover:bg-primary-hover"
               >
                 Proceed to Checkout
-              </button>
+              </Link>
 
               <Link
                 href="/shop"

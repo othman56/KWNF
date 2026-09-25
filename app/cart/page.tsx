@@ -161,12 +161,12 @@ export default function CartPage() {
                 </span>
               </div>
 
-              <button
-                type="button"
+              <Link
+                href="/checkout"
                 className="mt-8 flex h-14 w-full items-center justify-center rounded-full bg-primary px-8 text-sm font-black uppercase tracking-wide text-black transition-colors hover:bg-primary-hover"
               >
                 Proceed to Checkout
-              </button>
+              </Link>
 
               <Link
                 href="/shop"

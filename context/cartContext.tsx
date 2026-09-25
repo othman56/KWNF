@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 import type { Product } from "@/lib/products";
 
@@ -22,8 +22,34 @@ type CartContextType = {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+const CART_STORAGE_KEY = "kwnf-cart";
+
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
+  const [isCartLoaded, setIsCartLoaded] = useState(false);
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+
+    if (savedCart) {
+      try {
+        const parsedCart: CartItem[] = JSON.parse(savedCart);
+        setItems(parsedCart);
+      } catch {
+        localStorage.removeItem(CART_STORAGE_KEY);
+      }
+    }
+
+    setIsCartLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isCartLoaded) {
+      return;
+    }
+
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+  }, [items, isCartLoaded]);
 
   const addToCart = (product: Product, size: number, quantity: number) => {
     setItems((currentItems) => {

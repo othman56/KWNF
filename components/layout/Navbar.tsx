@@ -3,19 +3,23 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import { useCart } from "@/context/cartContext";
+
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { totalItems } = useCart();
 
   return (
     <header className="border-b border-border">
+      {" "}
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
+        {" "}
         <Link
           href="/"
           className="text-xl font-black uppercase tracking-tighter sm:text-2xl"
         >
-          KICKS <span className="text-primary">WEY</span> NO GO FAR
+          KICKS <span className="text-primary">WEY</span> NO GO FAR{" "}
         </Link>
-
         <div className="hidden items-center gap-8 md:flex">
           <Link
             href="/"
@@ -45,13 +49,12 @@ export function Navbar() {
             Contact
           </Link>
         </div>
-
         <div className="flex items-center gap-3">
           <Link
             href="/cart"
             className="hidden text-sm font-semibold transition-colors hover:text-primary sm:block"
           >
-            Cart (0)
+            Cart ({totalItems})
           </Link>
 
           <Link
@@ -71,7 +74,6 @@ export function Navbar() {
           </button>
         </div>
       </nav>
-
       {isMenuOpen && (
         <div className="border-t border-border bg-surface px-5 py-6 md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-5">
@@ -112,7 +114,7 @@ export function Navbar() {
               onClick={() => setIsMenuOpen(false)}
               className="text-sm font-semibold uppercase tracking-wide hover:text-primary"
             >
-              Cart (0)
+              Cart ({totalItems})
             </Link>
 
             <Link

@@ -18,7 +18,6 @@ export default function CartPage() {
           <p className="text-sm font-bold uppercase tracking-[0.25em] text-primary">
             Your Cart{" "}
           </p>
-          ```
           <h1 className="mt-3 text-4xl font-black uppercase tracking-tight sm:text-6xl">
             Shopping Cart
           </h1>

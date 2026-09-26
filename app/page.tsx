@@ -120,7 +120,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {products.slice(0, 6).map((product) => (
               <ProductCard
                 key={product.id}
@@ -136,32 +136,195 @@ export default function Home() {
 
       {/* Brand Statement */}
       <section className="border-t border-border bg-surface">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 sm:grid-cols-3 lg:px-8">
-          <div>
-            <p className="text-sm font-black uppercase text-primary">01</p>
-            <h2 className="mt-3 text-xl font-black uppercase">Premium Kicks</h2>
-            <p className="mt-2 text-sm leading-6 text-muted">
-              Carefully selected sneakers built for everyday style.
+        <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold uppercase tracking-[0.25em] text-primary">
+              Why KWNF
+            </p>
+
+            <h2 className="mt-4 text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-6xl">
+              We&apos;re not just selling sneakers.
+              <br />
+              <span className="text-primary">
+                We&apos;re building a movement.
+              </span>
+            </h2>
+
+            <p className="mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg">
+              KICKS WEY NO GO FAR is built for people who move with confidence,
+              express themselves through their style, and never settle for
+              ordinary.
             </p>
           </div>
 
-          <div>
-            <p className="text-sm font-black uppercase text-primary">02</p>
-            <h2 className="mt-3 text-xl font-black uppercase">Street Energy</h2>
-            <p className="mt-2 text-sm leading-6 text-muted">
-              A Nigerian sneaker brand made for people who stand out.
-            </p>
-          </div>
+          <div className="mt-16 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-3">
+            <div className="bg-surface p-7 sm:p-8">
+              <p className="text-sm font-black uppercase text-primary">01</p>
 
-          <div>
-            <p className="text-sm font-black uppercase text-primary">03</p>
-            <h2 className="mt-3 text-xl font-black uppercase">Nationwide</h2>
-            <p className="mt-2 text-sm leading-6 text-muted">
-              Based in Ibadan and delivering your kicks across Nigeria.
-            </p>
+              <h3 className="mt-4 text-xl font-black uppercase">
+                Premium Kicks
+              </h3>
+
+              <p className="mt-3 text-sm leading-6 text-muted">
+                Carefully selected sneakers built for everyday style and
+                movement.
+              </p>
+            </div>
+
+            <div className="bg-surface p-7 sm:p-8">
+              <p className="text-sm font-black uppercase text-primary">02</p>
+
+              <h3 className="mt-4 text-xl font-black uppercase">
+                Street Energy
+              </h3>
+
+              <p className="mt-3 text-sm leading-6 text-muted">
+                A Nigerian sneaker brand made for people who want their style to
+                speak for itself.
+              </p>
+            </div>
+
+            <div className="bg-surface p-7 sm:p-8">
+              <p className="text-sm font-black uppercase text-primary">03</p>
+
+              <h3 className="mt-4 text-xl font-black uppercase">Nationwide</h3>
+
+              <p className="mt-3 text-sm leading-6 text-muted">
+                Based in Ibadan and delivering your kicks across Nigeria.
+              </p>
+            </div>
           </div>
         </div>
       </section>
+      {/* WhatsApp CTA */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+          <div className="relative overflow-hidden border border-border bg-black px-6 py-12 sm:px-10 sm:py-16">
+            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-black/10 blur-3xl" />
+
+            <div className="relative max-w-3xl">
+              <p className="text-sm font-black uppercase tracking-[0.25em] text-white">
+                Need help choosing?
+              </p>
+
+              <h2 className="mt-4 text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-6xl">
+                Your next pair is
+                <br />
+                one message away.
+              </h2>
+
+              <p className="mt-6 max-w-xl text-sm leading-6 text-white sm:text-base">
+                Got questions about sizes, availability, or delivery? Chat with
+                us directly on WhatsApp and let&apos;s get you sorted.
+              </p>
+
+              <a
+                href="https://wa.me/2349038319865"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex h-14 items-center justify-center rounded-full bg-primary px-8 text-sm font-black uppercase tracking-wide text-white transition-transform hover:scale-[1.02]"
+              >
+                Chat on WhatsApp →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-surface">
+        <div className="mx-auto max-w-7xl px-5 py-14 lg:px-8">
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="lg:col-span-2">
+              <Link
+                href="/"
+                className="text-2xl font-black uppercase tracking-tight"
+              >
+                KWNF<span className="text-primary">.</span>
+              </Link>
+
+              <p className="mt-4 max-w-sm text-sm leading-6 text-muted">
+                KICKS WEY NO GO FAR. Premium sneakers for people who move
+                different. Based in Ibadan, delivering nationwide.
+              </p>
+
+              <a
+                href="https://wa.me/2349038319865"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex text-sm font-bold uppercase tracking-wider transition-colors hover:text-primary"
+              >
+                WhatsApp Us →
+              </a>
+            </div>
+
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">
+                Shop
+              </p>
+
+              <div className="mt-5 flex flex-col gap-3 text-sm text-muted">
+                <Link
+                  href="/shop"
+                  className="transition-colors hover:text-white"
+                >
+                  All Sneakers
+                </Link>
+
+                <Link
+                  href="/cart"
+                  className="transition-colors hover:text-white"
+                >
+                  Cart
+                </Link>
+
+                <Link
+                  href="/checkout"
+                  className="transition-colors hover:text-white"
+                >
+                  Checkout
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">
+                Connect
+              </p>
+
+              <div className="mt-5 flex flex-col gap-3 text-sm text-muted">
+                <a
+                  href="https://wa.me/2349038319865"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-white"
+                >
+                  WhatsApp
+                </a>
+
+                <a href="#" className="transition-colors hover:text-white">
+                  Instagram
+                </a>
+
+                <a href="#" className="transition-colors hover:text-white">
+                  TikTok
+                </a>
+
+                <p>Ibadan, Nigeria</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-14 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              © {new Date().getFullYear()} KICKS WEY NO GO FAR. All rights
+              reserved.
+            </p>
+
+            <p className="uppercase tracking-wider">Step Different.</p>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }

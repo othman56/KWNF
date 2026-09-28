@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { toast } from "sonner";
 
 import { useCart } from "@/context/cartContext";
 import Image from "next/image";
@@ -105,6 +106,10 @@ export default function CheckoutPage() {
       message,
     )}`;
 
+    toast.success("Order ready", {
+      description: "Opening WhatsApp to complete your order.",
+    });
+
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
     clearCart();
@@ -174,7 +179,11 @@ export default function CheckoutPage() {
                       updateField("fullName", event.target.value)
                     }
                     placeholder="Enter your full name"
-                    className="mt-2 h-12 w-full rounded-lg border border-border bg-background px-4 text-sm outline-none transition-colors placeholder:text-muted focus:border-primary"
+                    className={`mt-2 h-12 w-full rounded-lg border bg-background px-4 text-sm outline-none transition-colors placeholder:text-muted focus:ring-1 focus:ring-primary/30 ${
+                      errors.fullName
+                        ? "border-red-400 focus:border-red-400"
+                        : "border-border focus:border-primary"
+                    }`}
                   />
 
                   {errors.fullName && (
@@ -197,7 +206,11 @@ export default function CheckoutPage() {
                       updateField("phone", event.target.value)
                     }
                     placeholder="08012345678"
-                    className="mt-2 h-12 w-full rounded-lg border border-border bg-background px-4 text-sm outline-none transition-colors placeholder:text-muted focus:border-primary"
+                    className={`mt-2 h-12 w-full rounded-lg border bg-background px-4 text-sm outline-none transition-colors placeholder:text-muted focus:ring-1 focus:ring-primary/30 ${
+                      errors.phone
+                        ? "border-red-400 focus:border-red-400"
+                        : "border-border focus:border-primary"
+                    }`}
                   />
 
                   {errors.phone && (
@@ -220,7 +233,11 @@ export default function CheckoutPage() {
                     }
                     placeholder="Enter your full delivery address"
                     rows={4}
-                    className="mt-2 w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted focus:border-primary"
+                    className={`mt-2 h-12 w-full rounded-lg border bg-background px-4 text-sm outline-none transition-colors placeholder:text-muted focus:ring-1 focus:ring-primary/30 ${
+                      errors.address
+                        ? "border-red-400 focus:border-red-400"
+                        : "border-border focus:border-primary"
+                    }`}
                   />
 
                   {errors.address && (
@@ -243,7 +260,11 @@ export default function CheckoutPage() {
                       updateField("city", event.target.value)
                     }
                     placeholder="Ibadan"
-                    className="mt-2 h-12 w-full rounded-lg border border-border bg-background px-4 text-sm outline-none transition-colors placeholder:text-muted focus:border-primary"
+                    className={`mt-2 h-12 w-full rounded-lg border bg-background px-4 text-sm outline-none transition-colors placeholder:text-muted focus:ring-1 focus:ring-primary/30 ${
+                      errors.city
+                        ? "border-red-400 focus:border-red-400"
+                        : "border-border focus:border-primary"
+                    }`}
                   />
 
                   {errors.city && (
@@ -267,7 +288,7 @@ export default function CheckoutPage() {
                     }
                     placeholder="Anything we should know about your order?"
                     rows={3}
-                    className="mt-2 w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted focus:border-primary"
+                    className="mt-2 w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted focus:border-primary focus:ring-1 focus:ring-primary/30"
                   />
                 </div>
               </div>
@@ -340,7 +361,7 @@ export default function CheckoutPage() {
 
             <button
               type="submit"
-              className="mt-8 flex h-14 w-full items-center justify-center rounded-full bg-primary px-8 text-sm font-black uppercase tracking-wide text-black transition-colors hover:bg-primary-hover"
+              className="mt-8 flex h-16 w-full items-center justify-center rounded-full bg-primary px-8 text-sm font-black uppercase tracking-wide text-black transition-colors hover:bg-primary-hover"
             >
               Order on WhatsApp
             </button>

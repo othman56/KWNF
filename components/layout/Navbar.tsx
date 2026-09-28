@@ -1,5 +1,6 @@
 "use client";
 
+import { ShoppingCartIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -11,15 +12,14 @@ export function Navbar() {
 
   return (
     <header className="border-b border-border">
-      {" "}
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
-        {" "}
         <Link
           href="/"
           className="text-xl font-black uppercase tracking-tighter sm:text-2xl"
         >
-          KICKS <span className="text-primary">WEY</span> NO GO FAR{" "}
+          KICKS <span className="text-primary">WEY</span> NO GO FAR
         </Link>
+
         <div className="hidden items-center gap-8 md:flex">
           <Link
             href="/"
@@ -49,12 +49,20 @@ export function Navbar() {
             Contact
           </Link>
         </div>
+
         <div className="flex items-center gap-3">
           <Link
             href="/cart"
-            className="hidden text-sm font-semibold transition-colors hover:text-primary sm:block"
+            aria-label={`Cart (${totalItems} items)`}
+            className="relative flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-surface-hover hover:text-primary"
           >
-            Cart ({totalItems})
+            <ShoppingCartIcon className="h-5 w-5" strokeWidth={2} />
+
+            {totalItems > 0 && (
+              <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-black leading-none text-black">
+                {totalItems}
+              </span>
+            )}
           </Link>
 
           <Link
@@ -74,6 +82,7 @@ export function Navbar() {
           </button>
         </div>
       </nav>
+
       {isMenuOpen && (
         <div className="border-t border-border bg-surface px-5 py-6 md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-5">
@@ -112,9 +121,15 @@ export function Navbar() {
             <Link
               href="/cart"
               onClick={() => setIsMenuOpen(false)}
-              className="text-sm font-semibold uppercase tracking-wide hover:text-primary"
+              className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide hover:text-primary"
             >
-              Cart ({totalItems})
+              <span>Cart</span>
+
+              {totalItems > 0 && (
+                <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-black leading-none text-black">
+                  {totalItems}
+                </span>
+              )}
             </Link>
 
             <Link

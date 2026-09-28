@@ -56,17 +56,10 @@ export function ProductDetails({ product }: ProductDetailsProps) {
           </p>
 
           <div className="mt-8">
-            <div className="flex items-center justify-between">
+            <div>
               <p className="text-sm font-bold uppercase tracking-wider">
                 Select Size
               </p>
-
-              <button
-                type="button"
-                className="text-xs font-semibold uppercase text-muted hover:text-primary"
-              >
-                Size Guide
-              </button>
             </div>
 
             <div className="mt-4 flex flex-wrap gap-3">
@@ -139,18 +132,20 @@ export function ProductDetails({ product }: ProductDetailsProps) {
                   description: `${product.name} · Size ${selectedSize} · Qty ${quantity}`,
                 });
               }}
-              className="h-14 flex-1 rounded-full bg-primary px-8 text-sm font-black uppercase tracking-wide text-black transition-colors hover:bg-primary-hover"
+              className="h-16 flex-1 rounded-full bg-primary px-8 text-sm font-black uppercase tracking-wide text-black transition-colors hover:bg-primary-hover"
             >
               Add to Cart
             </button>
 
             <a
               href={`https://wa.me/2349038319865?text=${encodeURIComponent(
-                `Hi KWNF, I'm interested in the ${product.name} for ₦${product.price.toLocaleString()}.`,
+                `Hi KWNF, I'm interested in ordering the ${product.name}.\n\nSize: ${
+                  selectedSize ?? "Not selected"
+                }\nQuantity: ${quantity}\nPrice: ₦${product.price.toLocaleString()}`,
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-14 flex-1 items-center justify-center rounded-full border border-border px-8 text-sm font-black uppercase tracking-wide transition-colors hover:border-primary hover:text-primary"
+              className="flex h-16 flex-1 items-center justify-center rounded-full border border-border px-8 text-sm font-black uppercase tracking-wide transition-colors hover:border-primary hover:text-primary"
             >
               Order on WhatsApp
             </a>

@@ -78,7 +78,7 @@ export default function CartPage() {
                     </div>
 
                     <div className="mt-4 flex flex-wrap items-center gap-4">
-                      <div className="flex h-9 items-center rounded-full border border-border">
+                      <div className="flex h-11 items-center rounded-full border border-border">
                         <button
                           type="button"
                           onClick={() =>
@@ -88,7 +88,7 @@ export default function CartPage() {
                               item.quantity - 1,
                             )
                           }
-                          className="flex h-9 w-9 items-center justify-center text-lg font-bold text-muted transition-colors hover:text-primary"
+                          className="flex h-11 w-11 items-center justify-center text-lg font-bold text-muted transition-colors hover:text-primary"
                           aria-label={`Decrease quantity of ${item.product.name}`}
                         >
                           −
@@ -107,7 +107,7 @@ export default function CartPage() {
                               item.quantity + 1,
                             )
                           }
-                          className="flex h-9 w-9 items-center justify-center text-lg font-bold text-muted transition-colors hover:text-primary"
+                          className="flex h-11 w-11 items-center justify-center text-lg font-bold text-muted transition-colors hover:text-primary"
                           aria-label={`Increase quantity of ${item.product.name}`}
                         >
                           +
@@ -126,7 +126,7 @@ export default function CartPage() {
                     </div>
                   </div>
 
-                  <p className="hidden text-sm font-bold sm:block">
+                  <p className="text-sm font-bold">
                     ₦{(item.product.price * item.quantity).toLocaleString()}
                   </p>
                 </article>
@@ -167,7 +167,7 @@ export default function CartPage() {
 
               <Link
                 href="/checkout"
-                className="mt-8 flex h-14 w-full items-center justify-center rounded-full bg-primary px-8 text-sm font-black uppercase tracking-wide text-black transition-colors hover:bg-primary-hover"
+                className="mt-8 flex h-16 w-full items-center justify-center rounded-full bg-primary px-8 text-sm font-black uppercase tracking-wide text-black transition-colors hover:bg-primary-hover"
               >
                 Proceed to Checkout
               </Link>

@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/layout/Navbar";
 import { ProductCard } from "@/components/products/productCard";
 import { products } from "@/lib/products";
 import Image from "next/image";
